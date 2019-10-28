@@ -213,7 +213,7 @@ class SonarrAPI(object):
         headers = {
             'X-Api-Key': self.api_key
         }
-        res = requests.get(url, headers=headers, json=data)
+        res = requests.get(url, headers=headers, json=data, timeout=10)
         return res
 
     def request_post(self, url, data):
@@ -221,7 +221,7 @@ class SonarrAPI(object):
         headers = {
             'X-Api-Key': self.api_key
         }
-        res = requests.post(url, headers=headers, json=data)
+        res = requests.post(url, headers=headers, json=data, timeout=10)
         return res
 
     def request_put(self, url, data):
@@ -229,7 +229,7 @@ class SonarrAPI(object):
         headers = {
             'X-Api-Key': self.api_key
         }
-        res = requests.put(url, headers=headers, json=data)
+        res = requests.put(url, headers=headers, json=data, timeout=10)
         return res
 
     def request_del(self, url, data):
@@ -237,5 +237,5 @@ class SonarrAPI(object):
         headers = {
             'X-Api-Key': self.api_key
         }
-        res = requests.delete(url, headers=headers, json=data)
+        res = requests.delete(url, headers=headers, json=data, timeout=10)
         return res
