@@ -13,11 +13,14 @@ class SonarrAPI(object):
 
     # ENDPOINT CALENDAR
     def get_calendar(self):
-        # optional params: start (date) & end (date)
         """Gets upcoming episodes, if start/end are not supplied episodes airing today and tomorrow will be returned"""
         res = self.request_get("{}/calendar".format(self.host_url))
         return res.json()
 
+    def get_calendar_by_date(self, start, end):
+        """Gets upcoming episodes, if start/end are not supplied episodes airing today and tomorrow will be returned"""
+        res = self.request_get("{}/calendar?start={}&end={}".format(self.host_url, start, end))
+        return res.json()
 
     # ENDPOINT COMMAND
     def command(self):
